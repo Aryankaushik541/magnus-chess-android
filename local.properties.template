@@ -1,0 +1,29 @@
+## Magnus Chess - Local Properties Configuration
+## Copy this file to 'local.properties' and update the sdk.dir path
+
+# Android SDK Location
+# Update this path based on your operating system:
+
+# macOS:
+sdk.dir=/Users/YOUR_USERNAME/Library/Android/sdk
+
+# Windows:
+# sdk.dir=C\:\\Users\\YOUR_USERNAME\\AppData\\Local\\Android\\sdk
+
+# Linux:
+# sdk.dir=/home/YOUR_USERNAME/Android/Sdk
+
+# Supabase Configuration (Already configured for your project)
+supabase.url=https://ihqlwzdnniwkqjvlwtsi.supabase.co
+supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloeWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk0NjI0NzAsImV4cCI6MjA1NTAzODQ3MH0.9LSW4VfRvSJKfCw2xsRQ_w_2agGai
+
+# Instructions:
+# 1. Copy this file and rename it to 'local.properties'
+# 2. Update the sdk.dir path to match your Android SDK location
+# 3. Save the file
+# 4. Sync Gradle in Android Studio
+# 5. Build and run the app!
+
+# To find your Android SDK location:
+# - Android Studio → Preferences/Settings → Appearance & Behavior → System Settings → Android SDK
+# - Look for "Android SDK Location" at the top
