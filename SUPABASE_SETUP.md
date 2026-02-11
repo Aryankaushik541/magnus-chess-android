@@ -4,9 +4,15 @@
 
 **Project URL**: `https://ihqlwzdnniwkqjvlwtsi.supabase.co`
 
-**Anon/Public Key**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlocWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk0NjI0NzAsImV4cCI6MjA1NTAzODQ3MH0.9LSW4VfRvSJKfCw2xsRQ_w_2agGai`
+**Anon/Public Key** (for Android app):
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlocWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA4MjY1MzIsImV4cCI6MjA4NjQwMjUzMn0.1iZ8756rn82nyTUZ5ioeNrTRIgLGLmo2qvz-6c4qrOA
+```
 
-⚠️ **Note**: The secret key should NEVER be used in client-side code. Only use the anon/public key in your Android app.
+⚠️ **IMPORTANT SECURITY NOTE**: 
+- ✅ **USE** the anon/public key in your Android app (above)
+- ❌ **NEVER USE** the service_role secret key in client-side code
+- The service_role key bypasses Row Level Security and should only be used server-side
 
 ## 📝 Step 1: Create local.properties
 
@@ -18,21 +24,21 @@ sdk.dir=/Users/YOUR_USERNAME/Library/Android/sdk
 
 # Supabase Configuration
 supabase.url=https://ihqlwzdnniwkqjvlwtsi.supabase.co
-supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloeWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk0NjI0NzAsImV4cCI6MjA1NTAzODQ3MH0.9LSW4VfRvSJKfCw2xsRQ_w_2agGai
+supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlocWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA4MjY1MzIsImV4cCI6MjA4NjQwMjUzMn0.1iZ8756rn82nyTUZ5ioeNrTRIgLGLmo2qvz-6c4qrOA
 ```
 
 **For Windows**:
 ```properties
 sdk.dir=C\:\\Users\\YOUR_USERNAME\\AppData\\Local\\Android\\sdk
 supabase.url=https://ihqlwzdnniwkqjvlwtsi.supabase.co
-supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloeWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk0NjI0NzAsImV4cCI6MjA1NTAzODQ3MH0.9LSW4VfRvSJKfCw2xsRQ_w_2agGai
+supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlocWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA4MjY1MzIsImV4cCI6MjA4NjQwMjUzMn0.1iZ8756rn82nyTUZ5ioeNrTRIgLGLmo2qvz-6c4qrOA
 ```
 
 **For Linux**:
 ```properties
 sdk.dir=/home/YOUR_USERNAME/Android/Sdk
 supabase.url=https://ihqlwzdnniwkqjvlwtsi.supabase.co
-supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloeWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk0NjI0NzAsImV4cCI6MjA1NTAzODQ3MH0.9LSW4VfRvSJKfCw2xsRQ_w_2agGai
+supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlocWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA4MjY1MzIsImV4cCI6MjA4NjQwMjUzMn0.1iZ8756rn82nyTUZ5ioeNrTRIgLGLmo2qvz-6c4qrOA
 ```
 
 ## 🗄️ Step 2: Setup Database Tables
@@ -171,8 +177,8 @@ You can test your Supabase connection using this simple script:
 
 ```bash
 curl -X GET 'https://ihqlwzdnniwkqjvlwtsi.supabase.co/rest/v1/users' \
-  -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloeWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk0NjI0NzAsImV4cCI6MjA1NTAzODQ3MH0.9LSW4VfRvSJKfCw2xsRQ_w_2agGai" \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloeWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk0NjI0NzAsImV4cCI6MjA1NTAzODQ3MH0.9LSW4VfRvSJKfCw2xsRQ_w_2agGai"
+  -H "apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlocWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA4MjY1MzIsImV4cCI6MjA4NjQwMjUzMn0.1iZ8756rn82nyTUZ5ioeNrTRIgLGLmo2qvz-6c4qrOA" \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlocWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA4MjY1MzIsImV4cCI6MjA4NjQwMjUzMn0.1iZ8756rn82nyTUZ5ioeNrTRIgLGLmo2qvz-6c4qrOA"
 ```
 
 Expected response: `[]` (empty array, since no users yet)
@@ -324,7 +330,7 @@ Before deploying to production:
 ### "Invalid API Key"
 
 **Check**:
-- Using anon key (not secret key)
+- Using anon key (not service_role key)
 - No extra spaces in `local.properties`
 - Key is complete and not truncated
 
@@ -347,3 +353,7 @@ Your Supabase backend is now fully configured and ready to use with Magnus Chess
 ---
 
 **Your Supabase Project**: https://supabase.com/dashboard/project/ihqlwzdnniwkqjvlwtsi
+
+**API Keys Summary**:
+- **Anon Key** (for app): `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlocWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA4MjY1MzIsImV4cCI6MjA4NjQwMjUzMn0.1iZ8756rn82nyTUZ5ioeNrTRIgLGLmo2qvz-6c4qrOA`
+- **Service Role** (server only): Keep this secret and never use in client apps!
