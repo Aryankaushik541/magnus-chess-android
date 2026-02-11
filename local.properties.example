@@ -1,0 +1,5 @@
+# Copy this file to local.properties and add your Supabase credentials
+# DO NOT commit local.properties to version control
+
+supabase.url=YOUR_SUPABASE_PROJECT_URL
+supabase.key=YOUR_SUPABASE_ANON_KEY
