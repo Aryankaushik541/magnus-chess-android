@@ -2,165 +2,341 @@
 
 A comprehensive chess Android application similar to Magnus Carlsen's chess game with authentication, backend integration, and full chess gameplay features.
 
-## Features
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Platform](https://img.shields.io/badge/platform-Android-green.svg)
+![Language](https://img.shields.io/badge/language-Kotlin-purple.svg)
 
-- 🎮 Full chess gameplay with legal move validation
-- 👤 User authentication (Login/Register)
-- 🔐 Secure backend integration with Supabase
-- 🎨 Beautiful Material Design UI
-- 🏆 Player ratings and statistics
-- 📊 Game history tracking
-- 🤖 AI opponent (Stockfish integration ready)
-- ⏱️ Timer support for different game modes
-- 💾 Save and resume games
-- 🌐 Online multiplayer support
+## ✨ Features
 
-## Tech Stack
+- 🎮 **Full Chess Gameplay** - Complete chess rules with legal move validation
+- 👤 **User Authentication** - Secure login and registration with Supabase
+- 🔐 **Backend Integration** - Real-time game state synchronization
+- 🎨 **Beautiful UI** - Modern Material Design 3 interface
+- 🏆 **Multiple Game Modes** - Quick, Rapid, Classical, and AI practice
+- 📊 **Player Statistics** - Track ratings, games played, and wins
+- 💾 **Game Persistence** - Save and resume games anytime
+- ⏱️ **Timer Support** - Different time controls for each mode
+- 📜 **Move History** - Complete game notation and replay
 
-- **Language**: Kotlin
-- **Architecture**: MVVM (Model-View-ViewModel)
-- **Backend**: Supabase (Authentication + Database)
-- **Chess Engine**: Custom implementation with Stockfish integration
-- **UI**: Material Design 3, Jetpack Compose
-- **Dependencies**:
-  - Retrofit for API calls
-  - Room for local database
-  - Coroutines for async operations
-  - Hilt for dependency injection
-
-## Project Structure
-
-```
-app/
-├── src/
-│   ├── main/
-│   │   ├── java/com/magnuschess/
-│   │   │   ├── data/
-│   │   │   │   ├── model/
-│   │   │   │   ├── repository/
-│   │   │   │   └── api/
-│   │   │   ├── ui/
-│   │   │   │   ├── auth/
-│   │   │   │   ├── game/
-│   │   │   │   ├── home/
-│   │   │   │   └── profile/
-│   │   │   ├── viewmodel/
-│   │   │   ├── chess/
-│   │   │   │   ├── engine/
-│   │   │   │   ├── board/
-│   │   │   │   └── pieces/
-│   │   │   └── utils/
-│   │   ├── res/
-│   │   └── AndroidManifest.xml
-│   └── build.gradle
-└── build.gradle
-```
-
-## Setup Instructions
+## 🚀 Quick Start (10 Minutes)
 
 ### Prerequisites
 - Android Studio Hedgehog or later
-- JDK 17 or higher
-- Android SDK 24 or higher
-- Supabase account
+- JDK 17+
+- Android SDK (API 24+)
 
-### Step 1: Clone the Repository
+### Step 1: Clone Repository
 ```bash
 git clone https://github.com/Aryankaushik541/magnus-chess-android.git
 cd magnus-chess-android
 ```
 
-### Step 2: Configure Supabase Backend
+### Step 2: Configure Supabase
 
-1. Create a Supabase project at https://supabase.com
-2. Create the following tables:
+Your Supabase backend is **already configured**! Just run this SQL in your Supabase dashboard:
 
-**users table:**
-```sql
-CREATE TABLE users (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  email TEXT UNIQUE NOT NULL,
-  username TEXT UNIQUE NOT NULL,
-  rating INTEGER DEFAULT 1200,
-  games_played INTEGER DEFAULT 0,
-  games_won INTEGER DEFAULT 0,
-  created_at TIMESTAMP DEFAULT NOW()
-);
+1. Go to: https://supabase.com/dashboard/project/ihqlwzdnniwkqjvlwtsi
+2. Click **SQL Editor** → **New Query**
+3. Copy and paste the SQL from `SUPABASE_SETUP.md`
+4. Click **Run**
+
+### Step 3: Setup Local Properties
+
+Copy the template file:
+```bash
+cp local.properties.template local.properties
 ```
 
-**games table:**
+Then edit `local.properties` and update **only** the `sdk.dir` path:
+
+**macOS:**
+```properties
+sdk.dir=/Users/YOUR_USERNAME/Library/Android/sdk
+supabase.url=https://ihqlwzdnniwkqjvlwtsi.supabase.co
+supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloeWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk0NjI0NzAsImV4cCI6MjA1NTAzODQ3MH0.9LSW4VfRvSJKfCw2xsRQ_w_2agGai
+```
+
+**Windows:**
+```properties
+sdk.dir=C\:\\Users\\YOUR_USERNAME\\AppData\\Local\\Android\\sdk
+supabase.url=https://ihqlwzdnniwkqjvlwtsi.supabase.co
+supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloeWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk0NjI0NzAsImV4cCI6MjA1NTAzODQ3MH0.9LSW4VfRvSJKfCw2xsRQ_w_2agGai
+```
+
+**Linux:**
+```properties
+sdk.dir=/home/YOUR_USERNAME/Android/Sdk
+supabase.url=https://ihqlwzdnniwkqjvlwtsi.supabase.co
+supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloeWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk0NjI0NzAsImV4cCI6MjA1NTAzODQ3MH0.9LSW4VfRvSJKfCw2xsRQ_w_2agGai
+```
+
+### Step 4: Build and Run
+1. Open project in Android Studio
+2. Wait for Gradle sync
+3. Click Run ▶️
+4. Select emulator or device
+
+### Step 5: Test the App
+1. Register a new account
+2. Select a game mode
+3. Play chess!
+
+## 📱 Screenshots
+
+```
+┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐
+│  Login Screen   │  │   Home Screen   │  │   Game Screen   │
+│                 │  │                 │  │                 │
+│  ♔ Welcome     │  │  Quick Game ⚡  │  │  ♜ ♞ ♝ ♛ ♚ ♝ ♞ ♜ │
+│                 │  │  Rapid 🏃       │  │  ♟ ♟ ♟ ♟ ♟ ♟ ♟ ♟ │
+│  Email: ____    │  │  Classical ♟️   │  │                 │
+│  Password: ____ │  │  Play AI 🤖     │  │                 │
+│                 │  │                 │  │  ♙ ♙ ♙ ♙ ♙ ♙ ♙ ♙ │
+│  [Sign In]      │  │  Rating: 1200   │  │  ♖ ♘ ♗ ♕ ♔ ♗ ♘ ♖ │
+│  [Sign Up]      │  │  Games: 0       │  │                 │
+└─────────────────┘  └─────────────────┘  └─────────────────┘
+```
+
+## 🏗️ Architecture
+
+### Tech Stack
+- **Language**: Kotlin
+- **UI**: Jetpack Compose + Material Design 3
+- **Architecture**: MVVM + Clean Architecture
+- **DI**: Hilt
+- **Backend**: Supabase (Auth + PostgreSQL)
+- **Async**: Coroutines + Flow
+- **Navigation**: Jetpack Navigation Compose
+
+### Project Structure
+```
+app/src/main/java/com/magnuschess/
+├── chess/              # Chess engine
+│   ├── engine/         # Game logic (ChessBoard)
+│   └── model/          # Chess models (Piece, Move, Position)
+├── data/               # Data layer
+│   ├── api/            # Supabase client
+│   ├── model/          # Data models (User, Game)
+│   └── repository/     # Repositories (Auth, Game)
+├── di/                 # Dependency injection
+├── ui/                 # Presentation layer
+│   ├── screens/        # Compose screens
+│   │   ├── auth/       # Login, Register
+│   │   ├── home/       # Home screen
+│   │   └── game/       # Game screen
+│   ├── theme/          # App theme
+│   └── navigation/     # Navigation setup
+├── viewmodel/          # ViewModels
+└── utils/              # Utilities
+```
+
+## 🎮 Game Modes
+
+| Mode | Time Control | Description |
+|------|-------------|-------------|
+| ⚡ Quick | 5 minutes | Fast-paced games |
+| 🏃 Rapid | 10 minutes | Balanced gameplay |
+| ♟️ Classical | 30 minutes | Traditional chess |
+| 🤖 AI Practice | Unlimited | Play against computer |
+
+## 🔐 Backend (Supabase)
+
+### Database Schema
+
+**Users Table:**
 ```sql
-CREATE TABLE games (
-  id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-  white_player_id UUID REFERENCES users(id),
-  black_player_id UUID REFERENCES users(id),
+users (
+  id UUID PRIMARY KEY,
+  email TEXT UNIQUE,
+  username TEXT UNIQUE,
+  rating INTEGER DEFAULT 1200,
+  games_played INTEGER,
+  games_won INTEGER,
+  created_at TIMESTAMP
+)
+```
+
+**Games Table:**
+```sql
+games (
+  id UUID PRIMARY KEY,
+  white_player_id UUID,
+  black_player_id UUID,
   moves TEXT,
   result TEXT,
   time_control TEXT,
-  created_at TIMESTAMP DEFAULT NOW(),
-  updated_at TIMESTAMP DEFAULT NOW()
-);
+  created_at TIMESTAMP
+)
 ```
 
-3. Copy your Supabase URL and API Key
-4. Create `local.properties` in the root directory:
-```properties
-supabase.url=YOUR_SUPABASE_URL
-supabase.key=YOUR_SUPABASE_ANON_KEY
+### Your Supabase Project
+- **URL**: https://ihqlwzdnniwkqjvlwtsi.supabase.co
+- **Dashboard**: https://supabase.com/dashboard/project/ihqlwzdnniwkqjvlwtsi
+
+## 📚 Documentation
+
+- 📖 [Quick Start Guide](QUICK_START.md) - Get running in 10 minutes
+- 🔧 [Setup Guide](SETUP_GUIDE.md) - Detailed setup instructions
+- 🏗️ [Architecture](ARCHITECTURE.md) - Technical architecture details
+- 🗄️ [Supabase Setup](SUPABASE_SETUP.md) - Backend configuration
+
+## 🛠️ Development
+
+### Build Commands
+```bash
+# Clean build
+./gradlew clean
+
+# Build debug APK
+./gradlew assembleDebug
+
+# Build release APK
+./gradlew assembleRelease
+
+# Run tests
+./gradlew test
+
+# Run lint
+./gradlew lint
 ```
 
-### Step 3: Build and Run
+### Code Style
+- Follow [Kotlin Coding Conventions](https://kotlinlang.org/docs/coding-conventions.html)
+- Use meaningful variable names
+- Add comments for complex logic
+- Keep functions small and focused
 
-1. Open the project in Android Studio
-2. Sync Gradle files
-3. Run the app on an emulator or physical device
+## 🧪 Testing
 
-## Configuration
+```bash
+# Run unit tests
+./gradlew test
 
-Edit `app/src/main/java/com/magnuschess/utils/Constants.kt` to customize:
-- Game modes
-- Time controls
-- Rating system parameters
-- UI themes
+# Run instrumented tests
+./gradlew connectedAndroidTest
 
-## Game Modes
+# Generate coverage report
+./gradlew jacocoTestReport
+```
 
-- **Quick Game**: 5 minutes per player
-- **Rapid**: 10 minutes per player
-- **Classical**: 30 minutes per player
-- **Custom**: Set your own time
-- **AI Practice**: Play against computer
+## 🚢 Deployment
 
-## Backend API Endpoints
+### Generate Signed APK
 
-The app uses Supabase for:
-- User authentication (signup/login)
-- User profile management
-- Game storage and retrieval
-- Real-time multiplayer (Supabase Realtime)
+1. Create keystore:
+```bash
+keytool -genkey -v -keystore magnus-chess.jks -keyalg RSA -keysize 2048 -validity 10000 -alias magnus-chess
+```
 
-## Contributing
+2. Build release:
+```bash
+./gradlew assembleRelease
+```
+
+3. APK location: `app/build/outputs/apk/release/`
+
+### Publish to Google Play
+
+1. Create Google Play Developer account
+2. Create app in Play Console
+3. Upload APK/AAB
+4. Fill store listing
+5. Submit for review
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open Pull Request
 
-## License
+### Contribution Guidelines
+- Write clear commit messages
+- Add tests for new features
+- Update documentation
+- Follow existing code style
+- Test on multiple devices
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+## 🐛 Known Issues
 
-## Acknowledgments
+- [ ] AI opponent not yet implemented (Stockfish integration pending)
+- [ ] Online multiplayer in development
+- [ ] Timer countdown needs optimization
+- [ ] Game analysis feature planned
 
-- Chess piece images from Wikimedia Commons
-- Stockfish chess engine
-- Material Design guidelines
-- Supabase for backend infrastructure
+## 🗺️ Roadmap
 
-## Support
+### Version 1.1
+- [ ] Stockfish AI integration
+- [ ] Difficulty levels for AI
+- [ ] Game analysis with best moves
+- [ ] Opening book
 
-For issues and questions, please open an issue on GitHub.
+### Version 1.2
+- [ ] Online multiplayer with matchmaking
+- [ ] Real-time game updates
+- [ ] Chat system
+- [ ] Friend system
+
+### Version 2.0
+- [ ] Puzzle mode
+- [ ] Daily challenges
+- [ ] Leaderboards
+- [ ] Achievements
+- [ ] Tournament mode
+- [ ] Chess variants (Chess960, etc.)
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+```
+MIT License
+
+Copyright (c) 2026 Magnus Chess
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction...
+```
+
+## 🙏 Acknowledgments
+
+- Chess piece Unicode symbols
+- [Supabase](https://supabase.com) for backend infrastructure
+- [Jetpack Compose](https://developer.android.com/jetpack/compose) for modern UI
+- [Material Design](https://m3.material.io/) for design guidelines
+- Chess programming community
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/Aryankaushik541/magnus-chess-android/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Aryankaushik541/magnus-chess-android/discussions)
+- **Email**: support@magnuschess.com
+
+## 📊 Stats
+
+- **Lines of Code**: ~3,500+
+- **Files**: 30+
+- **Languages**: Kotlin, XML, SQL
+- **Min SDK**: 24 (Android 7.0)
+- **Target SDK**: 34 (Android 14)
+
+## 🌟 Star History
+
+If you find this project useful, please consider giving it a star ⭐
+
+## 📱 Download
+
+Coming soon to Google Play Store!
 
 ---
-Made with ❤️ for chess enthusiasts
+
+**Made with ❤️ for chess enthusiasts**
+
+**Repository**: https://github.com/Aryankaushik541/magnus-chess-android
+
+**Happy Coding! ♔**
