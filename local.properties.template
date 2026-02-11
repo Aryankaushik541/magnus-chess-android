@@ -15,7 +15,7 @@ sdk.dir=/Users/YOUR_USERNAME/Library/Android/sdk
 
 # Supabase Configuration (Already configured for your project)
 supabase.url=https://ihqlwzdnniwkqjvlwtsi.supabase.co
-supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloeWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk0NjI0NzAsImV4cCI6MjA1NTAzODQ3MH0.9LSW4VfRvSJKfCw2xsRQ_w_2agGai
+supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlocWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA4MjY1MzIsImV4cCI6MjA4NjQwMjUzMn0.1iZ8756rn82nyTUZ5ioeNrTRIgLGLmo2qvz-6c4qrOA
 
 # Instructions:
 # 1. Copy this file and rename it to 'local.properties'
@@ -27,3 +27,6 @@ supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZi
 # To find your Android SDK location:
 # - Android Studio → Preferences/Settings → Appearance & Behavior → System Settings → Android SDK
 # - Look for "Android SDK Location" at the top
+
+# IMPORTANT: Never commit local.properties to Git (it's already in .gitignore)
+# SECURITY: Only use the anon/public key in client apps, never the service_role secret key
