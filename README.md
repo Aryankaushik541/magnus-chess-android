@@ -53,21 +53,21 @@ Then edit `local.properties` and update **only** the `sdk.dir` path:
 ```properties
 sdk.dir=/Users/YOUR_USERNAME/Library/Android/sdk
 supabase.url=https://ihqlwzdnniwkqjvlwtsi.supabase.co
-supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloeWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk0NjI0NzAsImV4cCI6MjA1NTAzODQ3MH0.9LSW4VfRvSJKfCw2xsRQ_w_2agGai
+supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlocWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA4MjY1MzIsImV4cCI6MjA4NjQwMjUzMn0.1iZ8756rn82nyTUZ5ioeNrTRIgLGLmo2qvz-6c4qrOA
 ```
 
 **Windows:**
 ```properties
 sdk.dir=C\:\\Users\\YOUR_USERNAME\\AppData\\Local\\Android\\sdk
 supabase.url=https://ihqlwzdnniwkqjvlwtsi.supabase.co
-supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloeWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk0NjI0NzAsImV4cCI6MjA1NTAzODQ3MH0.9LSW4VfRvSJKfCw2xsRQ_w_2agGai
+supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlocWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA4MjY1MzIsImV4cCI6MjA4NjQwMjUzMn0.1iZ8756rn82nyTUZ5ioeNrTRIgLGLmo2qvz-6c4qrOA
 ```
 
 **Linux:**
 ```properties
 sdk.dir=/home/YOUR_USERNAME/Android/Sdk
 supabase.url=https://ihqlwzdnniwkqjvlwtsi.supabase.co
-supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImloeWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mzk0NjI0NzAsImV4cCI6MjA1NTAzODQ3MH0.9LSW4VfRvSJKfCw2xsRQ_w_2agGai
+supabase.key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlocWx3emRubml3a3Fqdmx3dHNpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA4MjY1MzIsImV4cCI6MjA4NjQwMjUzMn0.1iZ8756rn82nyTUZ5ioeNrTRIgLGLmo2qvz-6c4qrOA
 ```
 
 ### Step 4: Build and Run
@@ -172,6 +172,7 @@ games (
 ### Your Supabase Project
 - **URL**: https://ihqlwzdnniwkqjvlwtsi.supabase.co
 - **Dashboard**: https://supabase.com/dashboard/project/ihqlwzdnniwkqjvlwtsi
+- **Anon Key**: Already configured in template files
 
 ## 📚 Documentation
 
@@ -179,6 +180,7 @@ games (
 - 🔧 [Setup Guide](SETUP_GUIDE.md) - Detailed setup instructions
 - 🏗️ [Architecture](ARCHITECTURE.md) - Technical architecture details
 - 🗄️ [Supabase Setup](SUPABASE_SETUP.md) - Backend configuration
+- 🔨 [Build Instructions](BUILD_INSTRUCTIONS.md) - Step-by-step build guide
 
 ## 🛠️ Development
 
